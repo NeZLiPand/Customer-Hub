@@ -1,0 +1,43 @@
+### All ###
+/*
+
+### But ###
+!/src/
+!/.mvn/
+!.gitignore*
+!pom.xml
+
+### Also Spring Tool Suite ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### Also IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### Also NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### Also VS Code ###
+.vscode/
+
+### Also Windows ###
+Thumbs.db
+
+### Also macOS ###
+.DS_Store
+
+
