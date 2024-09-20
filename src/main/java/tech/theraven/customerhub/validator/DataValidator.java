@@ -1,4 +1,4 @@
-package tech.theraven.custumerhub.validator;
+package tech.theraven.customerhub.validator;
 
 public interface DataValidator {
 

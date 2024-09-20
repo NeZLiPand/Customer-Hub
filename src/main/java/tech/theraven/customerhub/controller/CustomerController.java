@@ -1,14 +1,13 @@
-package tech.theraven.custumerhub.controller;
+package tech.theraven.customerhub.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import jakarta.validation.Valid;
-import tech.theraven.custumerhub.model.dto.CustomerDTO;
+import tech.theraven.customerhub.dto.CustomerDTO;
 
 public interface CustomerController {
 
@@ -18,9 +17,9 @@ public interface CustomerController {
 
     ResponseEntity<CustomerDTO> createCustomer(@RequestBody CustomerDTO customerDTO);
 
-    ResponseEntity<CustomerDTO> upsertCustomer(@RequestBody @Valid CustomerDTO customerDTO,
+    ResponseEntity<CustomerDTO> updateCustomer(@RequestBody @Valid CustomerDTO customerDTO,
                                                @PathVariable Long id);
 
-    HttpStatus delete(@PathVariable Long id);
+    ResponseEntity<Void> deleteCustomer(@PathVariable Long id);
     
 }

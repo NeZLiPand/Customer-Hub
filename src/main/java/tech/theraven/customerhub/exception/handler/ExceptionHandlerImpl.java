@@ -1,4 +1,4 @@
-package tech.theraven.custumerhub.exception.handler;
+package tech.theraven.customerhub.exception.handler;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

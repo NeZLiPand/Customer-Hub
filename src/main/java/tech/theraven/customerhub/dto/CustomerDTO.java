@@ -1,9 +1,9 @@
-package tech.theraven.custumerhub.model.dto;
+package tech.theraven.customerhub.dto;
 
 import java.util.Objects;
 
 import jakarta.validation.constraints.Pattern;
-import tech.theraven.custumerhub.utility.RegexPatternConstants;
+import tech.theraven.customerhub.utility.RegexPatternConstants;
 
 public class CustomerDTO {
 

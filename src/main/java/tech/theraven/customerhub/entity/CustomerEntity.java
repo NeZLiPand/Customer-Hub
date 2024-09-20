@@ -1,4 +1,4 @@
-package tech.theraven.custumerhub.model.entity;
+package tech.theraven.customerhub.entity;
 
 import java.util.Objects;
 

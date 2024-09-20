@@ -1,8 +1,7 @@
-package tech.theraven.custumerhub.controller;
+package tech.theraven.customerhub.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.dao.DataIntegrityViolationException;
@@ -17,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
-import tech.theraven.custumerhub.model.dto.CustomerDTO;
-import tech.theraven.custumerhub.model.entity.CustomerEntity;
-import tech.theraven.custumerhub.model.repository.CustomerRepository;
-import tech.theraven.custumerhub.validator.DataValidator;
+import tech.theraven.customerhub.dto.CustomerDTO;
+import tech.theraven.customerhub.entity.CustomerEntity;
+import tech.theraven.customerhub.repository.CustomerRepository;
+import tech.theraven.customerhub.validator.DataValidator;
 
 @RestController
 public class CustomerControllerImpl
@@ -38,7 +37,7 @@ public class CustomerControllerImpl
     }
 
     @Override
-    @GetMapping
+    @GetMapping("/api/customers")
     public ResponseEntity<List<CustomerDTO>> readAllCustomers() {
         try {
             List<CustomerEntity> optionalListFoundCustomerEntities = customerRepository.findAll();
@@ -62,7 +61,7 @@ public class CustomerControllerImpl
     }
 
     @Override
-    @GetMapping("/{id}")
+    @GetMapping("/api/customers/{id}")
     public ResponseEntity<CustomerDTO> readCustomer(@PathVariable Long id) {
         try {
             Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);
@@ -83,7 +82,7 @@ public class CustomerControllerImpl
     }
 
     @Override
-    @PostMapping
+    @PostMapping("/api/customers")
     public ResponseEntity<CustomerDTO> createCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
         try {
             if (dataValidator.validateEmailIsUnique(customerDTO.getEmail())) {
@@ -113,12 +112,12 @@ public class CustomerControllerImpl
     }
 
     @Override
-    @PutMapping("/{id}")
-    public ResponseEntity<CustomerDTO> upsertCustomer(@RequestBody @Valid CustomerDTO customerDTO,
+    @PutMapping("/api/customers/{id}")
+    public ResponseEntity<CustomerDTO> updateCustomer(@RequestBody @Valid CustomerDTO customerDTO,
                                                       @PathVariable Long id) {
         try {
             Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);
-            if (optionalCustomerEntity.orElseThrow() != null) {
+            if (optionalCustomerEntity.isPresent()) {
                 CustomerEntity foundCustomerEntity = optionalCustomerEntity.get();
                 if (foundCustomerEntity.getEmail()
                                        .equals(customerDTO.getEmail())) {
@@ -137,12 +136,12 @@ public class CustomerControllerImpl
                                                            .withEmail(savedEntity.getEmail())
                                                            .withPhone(savedEntity.getPhone())
                                                            .build(),
-                                                HttpStatus.CREATED);
+                                                HttpStatus.OK);
+                } else {
+                    return new ResponseEntity<>(customerDTO,
+                                                HttpStatus.BAD_REQUEST);
                 }
             }
-            return new ResponseEntity<>(customerDTO,
-                                        HttpStatus.BAD_REQUEST);
-        } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -150,8 +149,8 @@ public class CustomerControllerImpl
     }
 
     @Override
-    @DeleteMapping("/{id}")
-    public HttpStatus delete(@PathVariable Long id) {
+    @DeleteMapping("/api/customers/{id}")
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         try {
             Optional<CustomerEntity> optionalCustomerEntity = customerRepository.findById(id);
             if (optionalCustomerEntity.isPresent()) {
@@ -165,11 +164,11 @@ public class CustomerControllerImpl
                                                       .withPhone(foundCustomerEntity.getPhone())
                                                       .withIsActive(false)
                                                       .build());
-                return HttpStatus.OK;
+                return new ResponseEntity<>(HttpStatus.OK);
             }
-            return HttpStatus.NOT_FOUND;
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

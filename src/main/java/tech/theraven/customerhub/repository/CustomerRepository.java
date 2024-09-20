@@ -1,14 +1,16 @@
-package tech.theraven.custumerhub.model.repository;
+package tech.theraven.customerhub.repository;
+
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import tech.theraven.custumerhub.model.entity.CustomerEntity;
+import tech.theraven.customerhub.entity.CustomerEntity;
 
 @Repository
 public interface CustomerRepository
     extends
         JpaRepository<CustomerEntity, Long> {
 
-    String findByEmail(String email);
+    Optional<CustomerEntity> findByEmail(String email);
 }

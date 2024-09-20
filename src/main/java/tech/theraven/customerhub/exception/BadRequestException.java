@@ -1,4 +1,4 @@
-package tech.theraven.custumerhub.exception;
+package tech.theraven.customerhub.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
