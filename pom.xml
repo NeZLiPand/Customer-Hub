@@ -13,10 +13,11 @@
 
     <groupId>tech.theraven.customer.hub</groupId>
     <artifactId>CustomerHub</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>war</packaging>
+    
     <name>Customer Hub</name>
-    <description>API server which controls Entity of Customers with basic CRUD
-        operations for the Customer entity</description>
+    <description>API server which controls Entity of Customers with basic CRUD operations for the Customer entity</description>
 
     <properties>
         <java.version>21</java.version>

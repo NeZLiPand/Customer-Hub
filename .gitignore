@@ -3,9 +3,16 @@
 
 ### But ###
 !/src/
+!/src/main/
+!/src/main/java/
+!/src/main/resources/
+!/src/test/
 !/.mvn/
 !.gitignore*
 !pom.xml
+!*.md
+
+*projectStructure*
 
 ### Also Spring Tool Suite ###
 .apt_generated
