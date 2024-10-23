@@ -10,13 +10,12 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 >  The operation of the server is demonstrated in the release notes. 
 
 ##
-<h3>
+<h2>
   <p align="center">
     Description
   </p>
-</h3>
+</h2>
 
-##
 ###
 **Stack of project:**
 
@@ -184,18 +183,16 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 </details>
 
 ##
-<h3>
+<h2>
   <p align="center">
     How to run the Server
   </p>
-</h3>
-
-##
+</h2>
 
 **Project launch instructions.**
 
 <details>
-<summary>:shipit: Tap it to open\close all spoilers :grey_exclamation:</summary>
+<summary>:shipit: Tap it to open\close all spoilers</summary>
 
 ##
 
@@ -257,7 +254,7 @@ Or create and configure application.yml, then you have to delete application.pro
 **Here is explain of others field** of application.properties file:
 
 <details>
-<summary>:herb: Other field</summary>
+<summary>:herb: Others field</summary>
 
 ##
 
@@ -412,8 +409,12 @@ But if you want to check how it works fully-featured, I recommend installing [*P
 <summary>:leaves: When to use a JAR file</summary>
 
 ###
-- Spring Boot applications: If your project is built with Spring Boot, creating a JAR file is the standard approach. Spring Boot produces self-contained JAR files that bundle all necessary dependencies and can run independently on any machine with a Java Runtime Environment (JRE) or Java Development Kit (JDK).
-- Easy distribution and deployment: A JAR file is convenient for distribution and deployment on different machines or servers. All that is required to run it is a working installation of Java.
+- Spring Boot applications:
+  - If your project is built with Spring Boot, creating a JAR file is the standard approach.
+  - Spring Boot produces self-contained JAR files that bundle all necessary dependencies and can run independently on any machine with a Java Runtime Environment (JRE) or Java Development Kit (JDK).
+- Easy distribution and deployment:
+  - A JAR file is convenient for distribution and deployment on different machines or servers.
+  - All that is required to run it is a working installation of Java.
 
 </details>
 
@@ -423,9 +424,14 @@ But if you want to check how it works fully-featured, I recommend installing [*P
 <summary>:leaves: When to use a WAR file</summary>
 
 ###
-- For web applications using WAR files: If your project is more traditional and intended to be deployed on web servers (e.g., Apache Tomcat or JBoss), creating a WAR file might be more appropriate. WAR files are better suited for web applications that need to be deployed in servlet containers.
-- Containers (Docker): For complex infrastructures or microservice-based architectures, containerizing your application with Docker might be a better solution. This ensures a consistent environment across all devices, regardless of the operating system or configurations.
-- Executable (native) packages: If you need the application to run directly as a binary file, there are tools available to convert Java applications into native executables for different OS platforms (e.g., GraalVM).
+- For web applications using WAR files:
+  - If your project is more traditional and intended to be deployed on web servers (e.g., Apache Tomcat or JBoss), creating a WAR file might be more appropriate.
+  - WAR files are better suited for web applications that need to be deployed in servlet containers.
+- Containers (Docker):
+  - For complex infrastructures or microservice-based architectures, containerizing your application with Docker might be a better solution.
+  - This ensures a consistent environment across all devices, regardless of the operating system or configurations.
+- Executable (native) packages:
+  - If you need the application to run directly as a binary file, there are tools available to convert Java applications into native executables for different OS platforms (e.g., GraalVM).
 
 </details>
 
