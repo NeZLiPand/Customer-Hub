@@ -353,8 +353,7 @@ This parameter controls the formatting of SQL queries in the output. Possible va
 > mvn clean install
 > ```
 
-> [!TIP]
->[*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+[*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -371,8 +370,8 @@ After the successful build, run the project with the following command:
 ```
 mvn spring-boot:run
 ```
-> [!TIP]
-> [*Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+
+[*Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -389,8 +388,7 @@ If the project starts successfully, it will be available in your browser at the 
 http://localhost:8888
 ```
 
-> [!TIP]
-> But if you want to check how it works fully-featured, I recommend installing [*Postman*](https://www.postman.com/downloads/)
+But if you want to check how it works fully-featured, I recommend installing [*Postman*](https://www.postman.com/downloads/)
 
 </details>
 
