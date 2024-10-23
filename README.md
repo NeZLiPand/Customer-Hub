@@ -46,12 +46,13 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 **Description of endpoints processing:**
 
 <details>
-<summary>:point_left:(:eyes:] The set of</summary>
+<summary>:point_left:(:eyes:]</summary>
 
+##
 ###
-Read all customers
+`Read all` customers
 <details>
-<summary>:triangular_flag_on_post: Configuration</summary>
+<summary>:white_large_square: Tap it</summary>
 
 ###
 - HTTP Query: GET
@@ -64,10 +65,11 @@ Read all customers
 
 </details>
 
+##
 ###
-Read customer
+`Read` customer
 <details>
-<summary>:triangular_flag_on_post: Configuration</summary>
+<summary>:white_circle: Tap it</summary>
 
 ###
 - HTTP Query: GET
@@ -80,10 +82,11 @@ Read customer
 
 </details>
 
+##
 ###
-Create customer
+`Create` customer
 <details>
-<summary>:triangular_flag_on_post: Configuration</summary>
+<summary>:green_circle:	 Tap it</summary>
   
 ###
 - HTTP Query: POST
@@ -101,10 +104,11 @@ Create customer
 
 </details>
 
+##
 ###
-Update customer
+`Update` customer
 <details>
-<summary>:triangular_flag_on_post: Configuration</summary>
+<summary>:yellow_circle: Tap it</summary>
 
 ###
 - HTTP Query: PUT
@@ -123,10 +127,11 @@ Update customer
 
 </details>
 
+##
 ###
-Delete customer
+`Delete` customer
 <details>
-<summary>:triangular_flag_on_post: Configuration</summary>
+<summary>:orange_circle: Tap it</summary>
 
 ###
 - HTTP Query: DELETE
@@ -200,11 +205,11 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 <summary>:fire_extinguisher: Ensured that</summary>
   
 ###
-- `Java` 21 (previous versions can't be supported, check it yourself);
+- `Java` (21 or higher, but previous versions can't be supported, check it yourself);
 
-- `Maven` (version 3.9.9 or higher);
+- `Maven` (recommend 3.9.9);
 
-- `PostgreSQL` and `psql JDBC driver` (or another database and his JDBC driver, but another DBs can't be supported, check it yourself);
+- `PostgreSQL` and `psql JDBC driver`(recommend 16.3);
 
 - `Git` (if you plan to clone the project from a repository).
 
@@ -343,12 +348,13 @@ This parameter controls the formatting of SQL queries in the output. Possible va
 ###
 - Build the project using Maven by your IDE. 
 
-- Or navigate to the root directory of the project and run the following command in your cmd:
+- Or navigate to the root directory of the project and run the following command in cmd by your OS:
 > ```
 > mvn clean install
 > ```
 
-[*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+> [!TIP]
+>[*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -365,8 +371,8 @@ After the successful build, run the project with the following command:
 ```
 mvn spring-boot:run
 ```
-
-[*Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+> [!TIP]
+> [*Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -383,7 +389,8 @@ If the project starts successfully, it will be available in your browser at the 
 http://localhost:8888
 ```
 
-But if you want to check how it works, I recommend installing [*Postman*](https://www.postman.com/downloads/)
+> [!TIP]
+> But if you want to check how it works fully-featured, I recommend installing [*Postman*](https://www.postman.com/downloads/)
 
 </details>
 
