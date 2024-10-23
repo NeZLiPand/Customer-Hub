@@ -18,14 +18,14 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 
 ##
 ###
-**`Stack of project:`**
+**Stack of project:**
 
 <details>
 <summary>:electron:	The set of</summary>
   
 ###
 - Backend:
-  - Java 21;
+  - Java (21);
   - Spring Boot (3.3.0):
     - Hibernate;
     - Tomcat;
@@ -35,29 +35,18 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 - Frontend:
   - None.
 - Database:
-  - PostgreSQL (It is recommended 16.3 or later)
+  - PostgreSQL (16.3)
 - Authentication:
   - None.
 
 </details>
 
-
-
+##
 ### 
-**`Description of endpoint processing:`**
+**Description of endpoints processing:**
 
 <details>
 <summary>:point_left:(:eyes:] The set of</summary>
-
-###
-Create customer
-<details>
-<summary>:triangular_flag_on_post: Configuration</summary>
-  
-###
-Configuration->
-
-</details>
 
 ###
 Read all customers
@@ -65,7 +54,13 @@ Read all customers
 <summary>:triangular_flag_on_post: Configuration</summary>
 
 ###
-Configuration->
+- HTTP Query: GET
+- Link: ../api/customers
+- Response body:
+  - id: Long
+  - fullName: String
+  - email: String
+  - phone: String
 
 </details>
 
@@ -75,7 +70,34 @@ Read customer
 <summary>:triangular_flag_on_post: Configuration</summary>
 
 ###
-Configuration->
+- HTTP Query: GET
+- Link: ../api/customers/{id}
+- Response body:
+  - id: Long
+  - fullName: String
+  - email: String
+  - phone: String
+
+</details>
+
+###
+Create customer
+<details>
+<summary>:triangular_flag_on_post: Configuration</summary>
+  
+###
+- HTTP Query: POST
+- Link: ../api/customers
+- Content-Type: application/json
+- Body:
+  - FullName: String (2..50 chars including whitespaces)
+  - email: String (2..100 chars, unique, should include exactly one @)
+  - phone: String (6..14 chars, only digits, should start from +, optional field)
+- Response body:
+  - id: Long
+  - fullName: String
+  - email: String
+  - phone: String
 
 </details>
 
@@ -85,7 +107,19 @@ Update customer
 <summary>:triangular_flag_on_post: Configuration</summary>
 
 ###
-Configuration->
+- HTTP Query: PUT
+- Link: ../api/customers/{id}
+- Content-Type: application/json
+- Body:
+  - id: Long
+  - FullName: String (2..50 chars including whitespaces)
+  - email: String (not editable)
+  - phone: String (6..14 chars, only digits, should start from +)
+- Response body:
+  - id: Long
+  - fullName: String
+  - email: String
+  - phone: String
 
 </details>
 
@@ -95,10 +129,53 @@ Delete customer
 <summary>:triangular_flag_on_post: Configuration</summary>
 
 ###
-Configuration->
+- HTTP Query: DELETE
+- Link: ../api/customers/{id}
+Just mark a customer as deleted, but leave his data in DB. Related DB column: is_active.
 
 </details>
 
+</details>
+
+##
+### 
+**Database structure:**
+
+<details>
+<summary>:cactus:	Gradual</summary>
+
+###
+- `Schema`:
+  - customerhub;
+- `Table`:
+  - customers;
+- `Table structure`:
+  - id:
+    - bigint;
+    - not Null;
+    - primary key.
+  - created:
+    - bigint;
+    - not Null.
+  - updated:
+    - bigint;
+    - not Null.
+  - full_name:
+    - character varying;
+    - not Null;
+    - lentgth (50).
+  - email:
+    - character varying;
+    - not Null,
+    - lentgth (100).
+  - phone:
+    - character varying;
+    - Nullable;
+    - lentgth (14).
+  - is_active:
+    - boolean;
+    - not Null.
+    
 </details>
 
 ##
@@ -147,16 +224,11 @@ Configuration->
 > git clone https://github.com/NeZLiPand/CustomerHub.git
 > ```
 
----
-
 - Or `use the button` **[<> Code]** to download on main page of the project, as on this screenshot:
+  - [*1st step*](https://github.com/user-attachments/assets/48067ebe-a8a5-46ff-822e-472d5fd5d6af);
+  - [*2nd step*](https://github.com/user-attachments/assets/72ea9414-83fb-45b9-8b53-1577a28a69f3).
 
-> ![image](https://github.com/user-attachments/assets/48067ebe-a8a5-46ff-822e-472d5fd5d6af)
-> ![image](https://github.com/user-attachments/assets/72ea9414-83fb-45b9-8b53-1577a28a69f3)
-
----
-
-> - `Or use another way`, which you prefer and can 😁👌.
+- `Or use another way`, which you prefer and can 😁👌.
 
 </details>
 
@@ -276,7 +348,7 @@ This parameter controls the formatting of SQL queries in the output. Possible va
 > mvn clean install
 > ```
 
-[Tap here if it doesn't work, but Maven has already installed](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+[*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -294,7 +366,7 @@ After the successful build, run the project with the following command:
 mvn spring-boot:run
 ```
 
-[Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step](https://mkyong.com/maven/how-to-install-maven-in-windows/)
+[*Tap here if it doesn't work, but Maven has already installed and you skip same link in previous step*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
 </details>
 
@@ -311,7 +383,7 @@ If the project starts successfully, it will be available in your browser at the 
 http://localhost:8888
 ```
 
-But if you want to check how it works, I recommend installing [Postman](https://www.postman.com/downloads/)
+But if you want to check how it works, I recommend installing [*Postman*](https://www.postman.com/downloads/)
 
 </details>
 
@@ -327,12 +399,12 @@ But if you want to check how it works, I recommend installing [Postman](https://
 - When deciding whether to build your project as a JAR file, or as a WAR file it's important to consider the architecture and environment in which your application will run.
 
 <details>
-<summary>:herb: The benefits of JAR and WAR files (short) :grey_exclamation:</summary>
+<summary>:herb: The benefits of JAR and WAR files (short)</summary>
 
 ##
 ###
 <details>
-<summary>:leaves: When to use a JAR file :grey_exclamation:</summary>
+<summary>:leaves: When to use a JAR file</summary>
 
 ###
 - Spring Boot applications: If your project is built with Spring Boot, creating a JAR file is the standard approach. Spring Boot produces self-contained JAR files that bundle all necessary dependencies and can run independently on any machine with a Java Runtime Environment (JRE) or Java Development Kit (JDK).
@@ -343,7 +415,7 @@ But if you want to check how it works, I recommend installing [Postman](https://
 ##
 ###
 <details>
-<summary>:leaves: When to use a WAR file :grey_exclamation:</summary>
+<summary>:leaves: When to use a WAR file</summary>
 
 ###
 - For web applications using WAR files: If your project is more traditional and intended to be deployed on web servers (e.g., Apache Tomcat or JBoss), creating a WAR file might be more appropriate. WAR files are better suited for web applications that need to be deployed in servlet containers.
