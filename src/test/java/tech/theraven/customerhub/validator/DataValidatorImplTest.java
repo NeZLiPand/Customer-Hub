@@ -93,11 +93,18 @@ public class DataValidatorImplTest {
 
     @Test
     public void testValidateEmail_shouldReturnTrue_whenEmailValidAndHasMaximumNumberOfSymbolsBeforeAtSign() {
-        String validEmail = "j".repeat(94)
-                            + "@a.com";
+        String validEmail = "j".repeat(93)
+                            + "@go.com";
         assertTrue(dataValidator.validateEmail(validEmail));
     }
 
+    @Test
+    public void testValidateEmail_shouldReturnTrue_whenEmailInvalidBecauseStringTooLong() {
+        String validEmail = "j".repeat(94)
+                            + "@go.com";
+        assertFalse(dataValidator.validateEmail(validEmail));
+    }
+    
     @Test
     public void testValidateEmail_shouldReturnFalse_whenEmailInvalidBecauseHasTooManyOfNumberOfSymbolsAfterAtSign() {
         String validEmail = "j@example.com"
@@ -115,6 +122,12 @@ public class DataValidatorImplTest {
     @Test
     public void testValidateEmail_shouldReturnFalse_whenEmailWithoutDomen() {
         String invalidEmail = "john.doe@";
+        assertFalse(dataValidator.validateEmail(invalidEmail));
+    }
+    
+    @Test
+    public void testValidateEmail_shouldReturnFalse_whenEmailWithoutAtSign() {
+        String invalidEmail = "john.doeexample.com";
         assertFalse(dataValidator.validateEmail(invalidEmail));
     }
 
