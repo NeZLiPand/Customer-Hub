@@ -34,7 +34,7 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 - Frontend:
   - None.
 - Database:
-  - PostgreSQL (16.3)
+  - PostgreSQL (16.3).
 - Authentication:
   - None.
 
@@ -54,8 +54,10 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 <summary>:white_large_square: Tap it</summary>
 
 ###
-- HTTP Query: GET
-- Link: ../api/customers
+- HTTP Query:
+  - GET
+- Link:
+  - /api/customers
 - Response body:
   - id: Long
   - fullName: String
@@ -71,8 +73,10 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 <summary>:white_circle: Tap it</summary>
 
 ###
-- HTTP Query: GET
-- Link: ../api/customers/{id}
+- HTTP Query:
+  - GET
+- Link:
+  - /api/customers/{id}
 - Response body:
   - id: Long
   - fullName: String
@@ -88,13 +92,24 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 <summary>:green_circle:	 Tap it</summary>
   
 ###
-- HTTP Query: POST
-- Link: ../api/customers
-- Content-Type: application/json
+- HTTP Query:
+  - POST
+- Link:
+  - /api/customers
+- Content-type:
+  - application/json
 - Body:
-  - FullName: String (2..50 chars including whitespaces)
-  - email: String (2..100 chars, unique, should include exactly one @)
-  - phone: String (6..14 chars, only digits, should start from +, optional field)
+  - FullName: String
+    - 2..50 chars (including whitespaces).
+  - email: String
+    - 2..100 chars;
+    - unique;
+    - should include exactly one '@'.
+  - phone: String
+    - 6..14 chars;
+    - only digits;
+    - should start from '+';
+    - optional field.
 - Response body:
   - id: Long
   - fullName: String
@@ -110,14 +125,22 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 <summary>:yellow_circle: Tap it</summary>
 
 ###
-- HTTP Query: PUT
-- Link: ../api/customers/{id}
-- Content-Type: application/json
+- HTTP Query:
+  - PUT
+- Link:
+  - /api/customers/{id}
+- Content-type:
+  - application/json
 - Body:
   - id: Long
-  - FullName: String (2..50 chars including whitespaces)
-  - email: String (not editable)
-  - phone: String (6..14 chars, only digits, should start from +)
+  - FullName: String
+    - 2..50 chars (including whitespaces).
+  - email: String
+    - not editable.
+  - phone: String
+    - 6..14 chars;
+    - only digits;
+    - should start from '+'.
 - Response body:
   - id: Long
   - fullName: String
@@ -133,9 +156,13 @@ The server is with basic CRUD operations for the Customer entity though endpoint
 <summary>:orange_circle: Tap it</summary>
 
 ###
-- HTTP Query: DELETE
-- Link: ../api/customers/{id}
-Just mark a customer as deleted, but leave his data in DB. Related DB column: is_active.
+- HTTP Query:
+  - DELETE
+- Link:
+  - /api/customers/{id}
+- Related DB column:
+  - is_active
+- Just mark a customer as deleted, but leave his data in DB.
 
 </details>
 
@@ -150,35 +177,35 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 
 ###
 - `Schema`:
-  - customerhub;
+  - customerhub
 - `Table`:
-  - customers;
+  - customers
 - `Table structure`:
   - id:
-    - bigint;
-    - not Null;
-    - primary key.
+    - bigint
+    - not Null
+    - primary key
   - created:
-    - bigint;
-    - not Null.
+    - bigint
+    - not Null
   - updated:
-    - bigint;
-    - not Null.
+    - bigint
+    - not Null
   - full_name:
-    - character varying;
-    - not Null;
-    - lentgth (50).
+    - character varying
+    - not Null
+    - lentgth (50)
   - email:
-    - character varying;
-    - not Null,
-    - lentgth (100).
+    - character varying
+    - not Null
+    - lentgth (100)
   - phone:
     - character varying;
-    - Nullable;
-    - lentgth (14).
+    - Nullable
+    - lentgth (14)
   - is_active:
-    - boolean;
-    - not Null.
+    - boolean
+    - not Null
     
 </details>
 
@@ -192,7 +219,7 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 **Project launch instructions.**
 
 <details>
-<summary>:shipit: Tap it to open\close all spoilers</summary>
+<summary>:shipit: Tap it to open \ close all spoilers</summary>
 
 ##
 
@@ -222,9 +249,9 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 ###
 - `Use Git` to clone the project repository onto your device:
 
-> ```
-> git clone https://github.com/NeZLiPand/CustomerHub.git
-> ```
+```
+git clone https://github.com/NeZLiPand/CustomerHub.git
+```
 
 - Or `use the button` **[<> Code]** to download on main page of the project, as on this screenshot:
   - [*1st step*](https://github.com/user-attachments/assets/48067ebe-a8a5-46ff-822e-472d5fd5d6af);
@@ -243,9 +270,11 @@ Just mark a customer as deleted, but leave his data in DB. Related DB column: is
 
 ###
 You have to `change configuration` of `the server` in the file application.properties located at the path:
+
 ```
 yourPathToTheProjectFolder/src/main/resources/application.properties
 ```
+
 - The server is configured to hear port: `8888`;
 - `You have to change the "Login" and "password"` to match one of the "users" in your database, for example, "postgres" and "postgres".
 
@@ -259,7 +288,7 @@ Or create and configure application.yml, then you have to delete application.pro
 ##
 
 ###
-**About spring.jpa.`open-in-view` field:**
+**About `spring.jpa.open-in-view` field:**
 
 <details>
 <summary>:leaves: Tap it</summary>
@@ -267,7 +296,7 @@ Or create and configure application.yml, then you have to delete application.pro
 ###
 This parameter determines whether the JPA session will be open for viewing (Open Session in View) during an HTTP request. It controls access to lazy-loaded data after the transaction has ended. Possible values:
 
-- true — the JPA session remains open after the transaction ends, allowing lazy loading of data within the HTTP request.
+- true — the JPA session remains open after the transaction ends, allowing lazy loading of data within the HTTP request;
 
 - false — the JPA session closes after the transaction ends, and lazy loading outside the transaction will throw a LazyInitializationException.
 
@@ -276,7 +305,7 @@ This parameter determines whether the JPA session will be open for viewing (Open
 ##
 
 ###
-**About spring.jpa.`hibernate.ddl-auto` field:**
+**About `spring.jpa.hibernate.ddl-auto` field:**
 
 <details>
 <summary>:leaves: Tap it</summary>
@@ -284,23 +313,24 @@ This parameter determines whether the JPA session will be open for viewing (Open
 ###
 This parameter defines the strategy for automatically managing the Hibernate database schema (DDL — Data Definition Language). Possible values:
 
-- none — no changes are applied to the database schema. Hibernate will not automatically create, update, or delete tables.
+- none — no changes are applied to the database schema. Hibernate will not automatically create, update, or delete tables;
 
-- update — Hibernate updates the schema while preserving existing data. It creates new tables and columns but does not delete or modify existing ones.
+- update — Hibernate updates the schema while preserving existing data. It creates new tables and columns but does not delete or modify existing ones;
 
-- create — Hibernate creates a new database schema at startup, deleting all existing tables.
+- create — Hibernate creates a new database schema at startup, deleting all existing tables;
 
-- create-drop — Hibernate creates a new database schema at startup and deletes it after the application stops.
+- create-drop — Hibernate creates a new database schema at startup and deletes it after the application stops;
 
-- validate — checks whether the existing database schema matches the entities in your code, but does not make any changes.
+- validate — checks whether the existing database schema matches the entities in your code, but does not make any changes;
 
 - create-only — creates the schema based on entities, but doesn’t drop it after the application stops (rarely used).
+
 </details>
 
 ##
 
 ###
-**About spring.jpa.`show-sql` field:**
+**About `spring.jpa.show-sql` field:**
 
 <details>
 <summary>:leaves: Tap it</summary>
@@ -308,7 +338,7 @@ This parameter defines the strategy for automatically managing the Hibernate dat
 ###
 This parameter controls whether SQL queries are displayed in the console. Possible values:
 
-- true — displays the SQL queries generated by Hibernate in the logs.
+- true — displays the SQL queries generated by Hibernate in the logs;
 
 - false — SQL queries will not be displayed in the logs.
 
@@ -317,7 +347,7 @@ This parameter controls whether SQL queries are displayed in the console. Possib
 ##
 
 ###
-**About spring.jpa.`properties.hibernate.format_sql` field:**
+**About `spring.jpa.properties.hibernate.format_sql` field:**
 
 <details>
 <summary>:leaves: Tap it</summary>
@@ -325,7 +355,7 @@ This parameter controls whether SQL queries are displayed in the console. Possib
 ###
 This parameter controls the formatting of SQL queries in the output. Possible values:
 
-- true — SQL queries will be formatted, meaning they will be easy to read (split across multiple lines with indentation).
+- true — SQL queries will be formatted, meaning they will be easy to read (split across multiple lines with indentation);
 
 - false — SQL queries will be displayed as a single continuous line (unformatted).
 
@@ -343,12 +373,13 @@ This parameter controls the formatting of SQL queries in the output. Possible va
 <summary>:tornado: Build it</summary>
   
 ###
-- Build the project using Maven by your IDE. 
+- Build the project using Maven by your IDE;
 
 - Or navigate to the root directory of the project and run the following command in cmd by your OS:
-> ```
-> mvn clean install
-> ```
+
+```
+mvn clean install
+```
 
 [*Tap here if it doesn't work, but Maven has already installed*](https://mkyong.com/maven/how-to-install-maven-in-windows/)
 
@@ -381,6 +412,7 @@ mvn spring-boot:run
   
 ###
 If the project starts successfully, it will be available in your browser at the following link:
+
 ```
 http://localhost:8888
 ```
@@ -397,7 +429,7 @@ But if you want to check how it works fully-featured, I recommend installing [*P
 <summary>:deciduous_tree: It's helpful</summary>
 
 ###
-- Ensure that all dependencies in the pom.xml file are correctly configured.
+- Ensure that all dependencies in the pom.xml file are correctly configured;
 - When deciding whether to build your project as a JAR file, or as a WAR file it's important to consider the architecture and environment in which your application will run.
 
 <details>
@@ -410,10 +442,10 @@ But if you want to check how it works fully-featured, I recommend installing [*P
 
 ###
 - Spring Boot applications:
-  - If your project is built with Spring Boot, creating a JAR file is the standard approach.
+  - If your project is built with Spring Boot, creating a JAR file is the standard approach;
   - Spring Boot produces self-contained JAR files that bundle all necessary dependencies and can run independently on any machine with a Java Runtime Environment (JRE) or Java Development Kit (JDK).
 - Easy distribution and deployment:
-  - A JAR file is convenient for distribution and deployment on different machines or servers.
+  - A JAR file is convenient for distribution and deployment on different machines or servers;
   - All that is required to run it is a working installation of Java.
 
 </details>
@@ -425,10 +457,10 @@ But if you want to check how it works fully-featured, I recommend installing [*P
 
 ###
 - For web applications using WAR files:
-  - If your project is more traditional and intended to be deployed on web servers (e.g., Apache Tomcat or JBoss), creating a WAR file might be more appropriate.
+  - If your project is more traditional and intended to be deployed on web servers (e.g., Apache Tomcat or JBoss), creating a WAR file might be more appropriate;
   - WAR files are better suited for web applications that need to be deployed in servlet containers.
 - Containers (Docker):
-  - For complex infrastructures or microservice-based architectures, containerizing your application with Docker might be a better solution.
+  - For complex infrastructures or microservice-based architectures, containerizing your application with Docker might be a better solution;
   - This ensures a consistent environment across all devices, regardless of the operating system or configurations.
 - Executable (native) packages:
   - If you need the application to run directly as a binary file, there are tools available to convert Java applications into native executables for different OS platforms (e.g., GraalVM).
